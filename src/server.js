@@ -21,7 +21,7 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY.replace(/\\n/g, "\n");
 const VERIFY_TOKEN = "dahsrA*0812";
 
 /* ------------------- WEBHOOK VERIFICATION ------------------- */
-app.get("/webhook", (req, res) => {
+app.get("https://basicwaflow.onrender.com//webhook", (req, res) => {
   const mode = req.query["hub.mode"];
   const token = req.query["hub.verify_token"];
   const challenge = req.query["hub.challenge"];
@@ -37,7 +37,7 @@ app.get("/webhook", (req, res) => {
 
 global.lastFormData = {};
 /* ------------------- MAIN FLOW ENDPOINT ------------------- */
-app.post("/", async (req, res) => {
+app.post("https://basicwaflow.onrender.com/", async (req, res) => {
   if (!isRequestSignatureValid(req)) return res.status(432).send();
 
   let decryptedRequest;
@@ -217,7 +217,7 @@ app.post("/", async (req, res) => {
 });
 
 /* ------------------- ROOT ROUTE ------------------- */
-app.get("/", (req, res) => {
+app.get("https://basicwaflow.onrender.com/", (req, res) => {
   res.send(`<pre>✅ WhatsApp Flow endpoint is running.
 POST / to test your flow requests.</pre>`);
 });
