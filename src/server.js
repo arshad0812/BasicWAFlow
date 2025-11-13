@@ -21,7 +21,7 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY.replace(/\\n/g, "\n");
 const VERIFY_TOKEN = "dahsrA*0812";
 
 /* ------------------- WEBHOOK VERIFICATION ------------------- */
-app.get("https://basicwaflow.onrender.com//webhook", (req, res) => {
+app.get("https://basicwaflow.onrender.com/webhook", (req, res) => {
   const mode = req.query["hub.mode"];
   const token = req.query["hub.verify_token"];
   const challenge = req.query["hub.challenge"];
