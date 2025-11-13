@@ -17,7 +17,8 @@ app.use(
 );
 
 const { APP_SECRET, PASSPHRASE = "", PORT = "3000" } = process.env;
-const PRIVATE_KEY = fs.readFileSync("private_key_pkcs8.pem", "utf8");
+// const PRIVATE_KEY = fs.readFileSync("private_key_pkcs8.pem", "utf8");
+const PRIVATE_KEY = process.env.PRIVATE_KEY.replace(/\\n/g, "\n");
 const VERIFY_TOKEN = "dahsrA*0812";
 
 /* ------------------- WEBHOOK VERIFICATION ------------------- */
